@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Xtrop | Virtual Concierge AI Assistant</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -12,68 +12,87 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
+    body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(ellipse at top, #1f1f2e, #121212);
-      color: #e0e0e0;
-      overflow: hidden;
+      background-color: #f9fafb;
+      color: #333;
+      line-height: 1.6;
     }
 
     header {
-      background-color: #1e1e2f;
-      padding: 1.5rem;
+      background: linear-gradient(to right, #3B81F6, #275EFE);
+      color: white;
+      padding: 2rem 1rem;
       text-align: center;
-      color: #ffffff;
-      font-size: 1.6rem;
-      border-bottom: 1px solid #333;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2rem;
     }
 
     main {
-      height: calc(100% - 140px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
+      padding: 3rem 1rem;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .chatbot-placeholder {
+      margin-top: 2rem;
     }
 
     footer {
-      height: 60px;
-      background-color: #1e1e2f;
-      color: #aaa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      border-top: 1px solid #333;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background-color: #f0f4f8;
+      color: #555;
+      font-size: 0.95rem;
+      margin-top: 3rem;
+      border-top: 1px solid #dfe3e8;
     }
 
-    flowise-fullchatbot {
-      width: 100%;
-      height: 100%;
+    footer a {
+      color: #3B81F6;
+      text-decoration: none;
     }
 
     @media (max-width: 768px) {
-      header {
-        font-size: 1.2rem;
-        padding: 1rem;
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      main {
+        padding: 2rem 1rem;
       }
     }
   </style>
 </head>
+
 <body>
 
   <header>
-    Xtrop AI Virtual Concierge
+    <h1>Welcome to Xtrop's Virtual Concierge</h1>
+    <p style="margin-top: 0.5rem; font-weight: 300;">Your AI assistant for 24/7 support</p>
   </header>
 
   <main>
-    <!-- Full-screen Chatbot -->
-    <flowise-fullchatbot></flowise-fullchatbot>
+    <p>Need help with claim tracking, member ID issues, or medication support?<br/>
+       Our Xtrop AI assistant is here for you—just click the chatbot icon!</p>
+    <div class="chatbot-placeholder">
+      <!-- Chatbot Component -->
+      <flowise-fullchatbot></flowise-fullchatbot>
+    </div>
   </main>
 
   <footer>
-    &copy; 2025 Xtrop. All rights reserved.
+    &copy; 2025 <strong>Xtrop AI</strong>. All rights reserved. | <a href="https://flowiseai.com">Terms & Conditions</a>
   </footer>
 
   <script type="module">
@@ -89,51 +108,52 @@
           right: 20,
           bottom: 20,
           size: 48,
-          dragAndDrop: false,
+          dragAndDrop: true,
           iconColor: 'white',
+          customIconSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
           autoWindowOpen: {
             autoOpen: true,
-            openDelay: 1,
-            autoOpenOnMobile: true
+            openDelay: 2,
+            autoOpenOnMobile: false
           }
         },
         tooltip: {
-          showTooltip: false
+          showTooltip: true,
+          tooltipMessage: 'Hi There 👋!',
+          tooltipBackgroundColor: 'black',
+          tooltipTextColor: 'white',
+          tooltipFontSize: 16
         },
         disclaimer: {
-          title: 'Welcome to Xtrop',
-          message: "By chatting with Xtrop's assistant, you agree to our <a href='https://xtrop.ai/terms' target='_blank'>Terms of Service</a>.",
-          textColor: '#ffffff',
-          buttonColor: '#3B81F6',
+          title: 'Disclaimer',
+          message: "By using this chatbot, you agree to the <a target=\"_blank\" href=\"https://flowiseai.com/terms\">Terms & Condition</a>",
+          textColor: 'black',
+          buttonColor: '#3b82f6',
           buttonText: 'Start Chatting',
           buttonTextColor: 'white',
-          backgroundColor: '#121212',
-          blurredBackgroundColor: 'rgba(0, 0, 0, 0.5)'
+          blurredBackgroundColor: 'rgba(0, 0, 0, 0.4)',
+          backgroundColor: 'white'
         },
         chatWindow: {
           showTitle: true,
           showAgentMessages: true,
           title: 'Xtrop Assistant',
           titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-          welcomeMessage: 'Hello! How can I assist you today?',
-          errorMessage: 'Something went wrong. Please try again.',
-          backgroundColor: '#1e1e2f',
+          welcomeMessage: 'Hello! I’m your Xtrop AI assistant. How can I help today?',
+          errorMessage: 'Oops, something went wrong. Try again later.',
+          backgroundColor: '#ffffff',
           backgroundImage: '',
           height: '100%',
           width: '100%',
-          fontSize: 18,
-          starterPrompts: [
-            "Track my claim",
-            "Replace my member ID",
-            "Check drug coverage"
-          ],
-          starterPromptFontSize: 16,
+          fontSize: 16,
+          starterPrompts: ["How do I check my claim status?", "I lost my member ID. What now?"],
+          starterPromptFontSize: 15,
           clearChatOnReload: false,
           sourceDocsTitle: 'Sources:',
           renderHTML: true,
           botMessage: {
-            backgroundColor: '#2c2c3c',
-            textColor: '#ffffff',
+            backgroundColor: '#f0f4ff',
+            textColor: '#303235',
             showAvatar: true,
             avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png'
           },
@@ -144,12 +164,12 @@
             avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png'
           },
           textInput: {
-            placeholder: 'Type your question here...',
-            backgroundColor: '#292939',
-            textColor: '#ffffff',
+            placeholder: 'Ask me anything...',
+            backgroundColor: '#ffffff',
+            textColor: '#303235',
             sendButtonColor: '#3B81F6',
-            maxChars: 100,
-            maxCharsWarningMessage: 'Max 100 characters allowed.',
+            maxChars: 50,
+            maxCharsWarningMessage: 'Limit: 50 characters. Please shorten your input.',
             autoFocus: true,
             sendMessageSound: true,
             sendSoundLocation: 'send_message.mp3',
@@ -157,14 +177,14 @@
             receiveSoundLocation: 'receive_message.mp3'
           },
           feedback: {
-            color: '#999'
+            color: '#303235'
           },
           dateTimeToggle: {
-            date: false,
-            time: false
+            date: true,
+            time: true
           },
           footer: {
-            textColor: '#aaa',
+            textColor: '#303235',
             text: 'Powered by',
             company: 'Xtrop',
             companyLink: 'https://xtrop.ai'

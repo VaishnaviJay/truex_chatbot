@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XTROPRESS | Virtual Concierge AI Assistant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,31 +12,20 @@
       box-sizing: border-box;
     }
 
-    :root {
-      --primary: #3B81F6;
-      --primary-dark: #2563eb;
-      --secondary: #275EFE;
-      --text-primary: #1a1a1a;
-      --text-secondary: #4b5563;
-      --bg-primary: #ffffff;
-      --bg-secondary: #f9fafb;
-    }
-
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg-secondary);
-      color: var(--text-primary);
+      background-color: #f8fafc;
+      color: #333;
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, #3B81F6, #275EFE);
       color: white;
-      padding: 4rem 1rem;
+      padding: 3rem 1.5rem;
       text-align: center;
       position: relative;
-      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(59, 129, 246, 0.15);
     }
 
     header::before {
@@ -46,140 +35,113 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+      background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1) 0%, transparent 70%);
       pointer-events: none;
     }
 
     header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      margin-bottom: 0.5rem;
-      opacity: 0;
-      animation: fadeInUp 0.6s ease forwards;
+      font-size: 2.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     header p {
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: rgba(255,255,255,0.9);
-      opacity: 0;
-      animation: fadeInUp 0.6s ease 0.2s forwards;
+      font-size: 1.125rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.95);
     }
 
     main {
-      padding: 4rem 1rem;
+      padding: 3rem 1.5rem;
       text-align: center;
-      max-width: 1000px;
-      margin: auto;
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      margin-top: -2rem;
       position: relative;
-    }
-
-    .content-wrapper {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 3rem;
-      opacity: 0;
-      animation: fadeInUp 0.6s ease 0.4s forwards;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
     }
 
     main p {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-      line-height: 1.8;
+      font-size: 1.2rem;
+      color: #4b5563;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
     }
 
     .chatbot-placeholder {
       margin-top: 2rem;
-      opacity: 0;
-      animation: fadeInUp 0.6s ease 0.6s forwards;
+      border-radius: 16px;
+      overflow: hidden;
     }
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      background-color: var(--bg-primary);
-      color: var(--text-secondary);
+      padding: 2rem 1.5rem;
+      background-color: white;
+      color: #64748b;
       font-size: 0.95rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-      opacity: 0;
-      animation: fadeInUp 0.6s ease 0.8s forwards;
+      border-top: 1px solid #e2e8f0;
     }
 
     footer a {
-      color: var(--primary);
+      color: #3B81F6;
       text-decoration: none;
       transition: color 0.2s ease;
     }
 
     footer a:hover {
-      color: var(--primary-dark);
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      color: #1d4ed8;
     }
 
     @media (max-width: 768px) {
       header {
-        padding: 3rem 1rem;
+        padding: 2.5rem 1rem;
       }
 
       header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
       }
 
       main {
         padding: 2rem 1rem;
-      }
-
-      .content-wrapper {
-        padding: 1.5rem;
+        margin-top: -1.5rem;
+        border-radius: 20px;
       }
 
       main p {
         font-size: 1.1rem;
+        line-height: 1.6;
       }
     }
   </style>
 </head>
 
 <body>
+
   <header>
     <h1>Welcome to XTROPRESS's Virtual Concierge</h1>
-    <p>Your Intelligent AI Assistant for 24/7 Support</p>
+    <p style="margin-top: 0.5rem; font-weight: 300;">Your AI assistant for 24/7 support</p>
   </header>
 
   <main>
-    <div class="content-wrapper">
-      <p>
-        Need assistance with claim tracking, member ID issues, or medication support?<br/>
-        Our XTROP AI assistant is here to help you 24/7 — just start a conversation below!
-      </p>
-      <div class="chatbot-placeholder">
-        <flowise-fullchatbot></flowise-fullchatbot>
-      </div>
+    <p>Need help with claim tracking, member ID issues, or medication support?<br/>
+       Our XTROP AI assistant is here for you—just click the chatbot icon!</p>
+    <div class="chatbot-placeholder">
+      <!-- Chatbot Component -->
+      <flowise-fullchatbot></flowise-fullchatbot>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 <strong>XTROP AI</strong> • All rights reserved • <a href="https://flowiseai.com">Terms & Conditions</a></p>
+    &copy; 2025 <strong>XTROP AI</strong>. All rights reserved. | <a href="https://flowiseai.com">Terms & Conditions</a>
   </footer>
 
   <script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
     Chatbot.initFull({
       chatflowid: "0f10fcf2-180e-4006-a6d3-e9bfe5604c45",
       apiHost: "http://localhost:3000",
@@ -187,7 +149,7 @@
       observersConfig: {},
       theme: {
         button: {
-          backgroundColor: 'var(--primary)',
+          backgroundColor: '#3B81F6',
           right: 20,
           bottom: 20,
           size: 48,
@@ -211,7 +173,7 @@
           title: 'Disclaimer',
           message: "By using this chatbot, you agree to the <a target=\"_blank\" href=\"https://flowiseai.com/terms\">Terms & Condition</a>",
           textColor: 'black',
-          buttonColor: 'var(--primary)',
+          buttonColor: '#3b82f6',
           buttonText: 'Start Chatting',
           buttonTextColor: 'white',
           blurredBackgroundColor: 'rgba(0, 0, 0, 0.4)',
@@ -241,7 +203,7 @@
             avatarSrc: 'XTROP-logo.png'
           },
           userMessage: {
-            backgroundColor: 'var(--primary)',
+            backgroundColor: '#3B81F6',
             textColor: '#ffffff',
             showAvatar: true,
             avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png'
@@ -250,7 +212,7 @@
             placeholder: 'Ask me anything...',
             backgroundColor: '#ffffff',
             textColor: '#303235',
-            sendButtonColor: 'var(--primary)',
+            sendButtonColor: '#3B81F6',
             maxChars: 50,
             maxCharsWarningMessage: 'Limit: 50 characters. Please shorten your input.',
             autoFocus: true,
@@ -274,7 +236,7 @@
           }
         }
       }
-    })
+    });
   </script>
 </body>
 </html>
